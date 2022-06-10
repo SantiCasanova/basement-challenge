@@ -3,7 +3,7 @@ import CartItem from './CartItem'
 
 interface Props {
   show: boolean,
-  closeModal: any  //HELP
+  closeModal: React.MouseEventHandler<HTMLButtonElement>
 }
 
 function Cart({ show, closeModal }: Props) {
