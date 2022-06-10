@@ -5,7 +5,7 @@ import { products } from '../product/mock'
 function Store() {
   return (
     <div className={styles.container}>
-      <ProductItem product={products[0]} />
+      {products.map(product => <ProductItem key={product.title} product={product} />)}
     </div>
   )
 }
