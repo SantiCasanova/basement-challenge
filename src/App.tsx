@@ -3,6 +3,7 @@ import Nav from './components/Nav'
 import Header from './components/Header'
 import Separator from './components/Separator'
 import Store from './components/Store'
+import Footer from './components/Footer'
 
 function App() {
 
@@ -12,6 +13,7 @@ function App() {
       <Header />
       <Separator />
       <Store />
+      <Footer />
     </div>
   )
 }

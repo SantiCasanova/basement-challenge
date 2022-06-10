@@ -1,4 +1,5 @@
 import styles from './Nav.module.scss'
+import Cart from './Cart'
 
 function Nav() {
   return (
@@ -9,6 +10,7 @@ function Nav() {
         <span>CART</span>
         <span className={styles.button__item}>(0)</span>
       </button>
+      <Cart />
     </div>
   )
 }

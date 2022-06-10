@@ -25,6 +25,7 @@
 }
 
 .hover {
+  user-select: none;
   display: flex;
   flex-direction: column;
   position: absolute;
