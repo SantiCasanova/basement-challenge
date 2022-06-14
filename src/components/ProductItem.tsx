@@ -1,6 +1,7 @@
 import styles from './ProductItem.module.scss'
 import { Product } from '../product/types'
-import { useState } from 'react'
+import { useContext, useState } from 'react'
+import { CartContext } from '../context/CartContext'
 
 interface Props {
   product: Product
@@ -8,11 +9,12 @@ interface Props {
 
 function ProductItem({ product }: Props) {
   const [box, setBox] = useState(false)
+  const cart = useContext(CartContext)
 
   return (
     <div className={styles.container} onMouseEnter={() => { setBox(true) }} onMouseLeave={() => { setBox(false) }}>
       <img src={product.image} alt="productImage" className={styles.container__image} />
-      <div className={`${box ? styles.hover : styles.hover__disabled}`}>
+      <div onClick={() => { cart.push(product) }} className={`${box ? styles.hover : styles.hover__disabled}`}>
         <img src="./public/world.svg" alt="world" className={styles.hover__image} />
         <span className={styles.hover__text}>ADD TO CART</span>
       </div>
