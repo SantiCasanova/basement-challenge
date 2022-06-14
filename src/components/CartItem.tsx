@@ -1,12 +1,16 @@
+import { Product } from '../product/types'
 import styles from './CartItem.module.scss'
 
-function CartItem() {
+interface Props extends Product {
+  quantity: number
+};
+function CartItem({ image, title, price, quantity }: Props) {
   return (
     <div className={styles.container}>
-      <img src="./public/products/shirt.png" alt="product" className={styles.container__image} />
+      <img src={image} alt="product" className={styles.container__image} />
       <div className={styles.rightSide}>
         <div className={styles.rightSide__header}>
-          <span className={styles.title}>BLACK T-SHIRT</span>
+          <span className={styles.title}>{title}</span>
           <span className={styles.description}>Unisex Basic Softstyle T-Shirt</span>
         </div>
         <div className={styles.selectors}>
@@ -14,7 +18,7 @@ function CartItem() {
             <span className={styles.selectorItem__title}>Quantity:</span>
             <div className={styles.selectorItem__results}>
               <span>-</span>
-              <p>1</p>
+              <p>{quantity}</p>
               <span>+</span>
             </div>
           </div>
@@ -27,7 +31,7 @@ function CartItem() {
           </div>
         </div>
       </div>
-      <span className={styles.container__productPrice}>$12,50</span>
+      <span className={styles.container__productPrice}>${price}</span>
     </div >
   )
 }

@@ -1,5 +1,4 @@
 import { CartContext } from "./CartContext";
-import { Product } from '../product/types';
 
 interface Props {
   children: JSX.Element | JSX.Element[]
