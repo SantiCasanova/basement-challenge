@@ -1,25 +1,37 @@
-import { Product } from './interfaces/types'
+import { Cart } from './interfaces/types'
+import { CartState } from '../context/CartContext'
 import styles from './CartItem.module.scss'
 
-interface Props extends Product {
-  quantity: number
+interface Props {
+  product: Cart
 };
-function CartItem({ image, title, price, quantity }: Props) {
+function CartItem({ product }: Props) {
+  const { dispatch } = CartState();
   return (
     <div className={styles.container}>
-      <img src={image} alt="product" className={styles.container__image} />
+      <img src={product.image} alt="product" className={styles.container__image} />
       <div className={styles.rightSide}>
         <div className={styles.rightSide__header}>
-          <span className={styles.title}>{title}</span>
+          <span className={styles.title}>{product.title}</span>
           <span className={styles.description}>Unisex Basic Softstyle T-Shirt</span>
         </div>
         <div className={styles.selectors}>
           <div className={styles.selectorItem}>
             <span className={styles.selectorItem__title}>Quantity:</span>
             <div className={styles.selectorItem__results}>
-              <span>-</span>
-              <p>{quantity}</p>
-              <span>+</span>
+              <span onClick={() => {
+                dispatch({
+                  type: 'REMOVE_QTY',
+                  payload: product
+                })
+              }} >-</span>
+              <p>{product.quantity}</p>
+              <span onClick={() => {
+                dispatch({
+                  type: 'ADD_QTY',
+                  payload: product
+                })
+              }}>+</span>
             </div>
           </div>
           <div className={styles.selectorItem}>
@@ -31,7 +43,7 @@ function CartItem({ image, title, price, quantity }: Props) {
           </div>
         </div>
       </div>
-      <span className={styles.container__productPrice}>${price}</span>
+      <span className={styles.container__productPrice}>${product.price}</span>
     </div >
   )
 }

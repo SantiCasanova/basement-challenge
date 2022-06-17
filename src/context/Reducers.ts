@@ -1,10 +1,11 @@
 import { initialState } from './CartContext';
-import { Product } from '../components/interfaces/types'
+import { Product, Cart } from '../components/interfaces/types'
 
 type ActionType =
   | { type: 'ADD_TO_CART', payload: Product }
   | { type: 'REMOVE_FROM_CART' }
-  | { type: 'CHANGE_CART_QTY' };
+  | { type: 'ADD_QTY', payload: Cart }
+  | { type: 'REMOVE_QTY', payload: Cart }
 
 export const cartReducer = (state: typeof initialState, action: ActionType) => {
   switch (action.type) {
@@ -24,13 +25,20 @@ export const cartReducer = (state: typeof initialState, action: ActionType) => {
     //     ...state,
     //     cart: state.cart.filter((c) => c.id !== action.payload.id),
     //   };
-    // case "CHANGE_CART_QTY":
-    //   return {
-    //     ...state,
-    //     cart: state.cart.filter((c) =>
-    //       c.id === action.payload.id ? (c.qty = action.payload.qty) : c.qty
-    //     ),
-    //   };
+    case "ADD_QTY":
+      return {
+        ...state,
+        cart: state.cart.filter((item) =>
+          item.id === action.payload.id ? (item.quantity++) : item.quantity
+        ),
+      };
+    case "REMOVE_QTY":
+      return {
+        ...state,
+        cart: state.cart.filter((item) =>
+          item.id === action.payload.id ? (item.quantity--) : item.quantity
+        ),
+      };
     default:
       return state;
   }
