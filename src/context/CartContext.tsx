@@ -1,9 +1,15 @@
 import { createContext, useContext, useReducer } from "react";
-import { Product } from '../components/interfaces/types';
-import { products } from '../product/mock'
+import { Cart } from '../components/interfaces/types';
 import { cartReducer } from "./Reducers";
+import { products } from '../mock/products';
+import { cart } from '../mock/cart';
 
-const CartContext = createContext<Product[]>([])
+const CartContext = createContext<Cart[]>([])
+
+export const initialState = {
+  products: products,
+  cart: cart
+}
 
 interface Props {
   children: JSX.Element | JSX.Element[]
@@ -11,15 +17,7 @@ interface Props {
 
 const CartProvider = ({ children }: Props) => {
 
-  const initialState = {
-    products: products,
-    cart: []
-  }
-
-  const [state, dispatch] = useReducer(cartReducer, {
-    products: products,
-    cart: [],
-  });
+  const [state, dispatch] = useReducer(cartReducer, initialState);
 
   return (
     <CartContext.Provider value={{ state, dispatch }}>

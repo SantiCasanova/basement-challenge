@@ -1,6 +1,5 @@
 import styles from './Cart.module.scss'
 import CartItem from './CartItem'
-import { useContext, useEffect, useState } from 'react'
 import { CartState } from '../context/CartContext'
 
 interface Props {
@@ -10,7 +9,6 @@ interface Props {
 
 function Cart({ show, closeModal }: Props) {
   const { state: { cart } } = CartState();
-
   if (!show) {
     return null
   }

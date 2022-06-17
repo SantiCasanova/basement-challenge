@@ -11,8 +11,8 @@ function ProductItem({ product }: Props) {
   const { state: { cart }, dispatch } = CartState();
   const [box, setBox] = useState(false)
   // const pushProduct = (product: Product) => {
-  //   const itemIndex = state.cart.findIndex(item => item.id === product.id)
-  //   itemIndex === -1 ? state.cart.push({ ...product, quantity: 1 }) : state.cart[itemIndex].quantity++
+  //   const itemIndex = cart.findIndex(item => item.id === product.id)
+  //   itemIndex === -1 ? cart.push({ ...product, quantity: 1 }) : cart[itemIndex].quantity++
   // }
   return (
     <div className={styles.container} onMouseEnter={() => { setBox(true) }} onMouseLeave={() => { setBox(false) }}>
