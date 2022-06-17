@@ -1,6 +1,7 @@
 import styles from './Cart.module.scss'
 import CartItem from './CartItem'
 import { CartState } from '../context/CartContext'
+import { Product } from './interfaces/types';
 
 interface Props {
   show: boolean,
@@ -20,7 +21,7 @@ function Cart({ show, closeModal }: Props) {
           <span className={styles.your}>YOUR</span>
           <span className={styles.cart}>CART</span>
         </div>
-        {cart.length > 0 ? cart.map(item => <CartItem key={item.id} title={item.title} id={item.id} price={item.price} image={item.image} size='S' quantity={item.quantity} />) : ''}
+        {cart.length > 0 ? cart.map((item: Product) => <CartItem key={item.id} title={item.title} id={item.id} price={item.price} image={item.image} size='S' quantity={item.quantity} />) : ''}
         <div className={styles.bottom}>
           <div className={styles.bottom__total}>
             <span>TOTAL:</span>

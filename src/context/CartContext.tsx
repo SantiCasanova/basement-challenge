@@ -1,10 +1,9 @@
 import { createContext, useContext, useReducer } from "react";
-import { Cart } from '../components/interfaces/types';
 import { cartReducer } from "./Reducers";
 import { products } from '../mock/products';
 import { cart } from '../mock/cart';
 
-const CartContext = createContext<Cart[]>([])
+const CartContext = createContext<any>([])
 
 export const initialState = {
   products: products,
