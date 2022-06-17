@@ -6,3 +6,7 @@ export interface Product {
   id: number,
   quantity: number
 }
+
+export interface Cart extends Product {
+  quantity: number
+}

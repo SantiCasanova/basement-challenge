@@ -1,4 +1,4 @@
-import { Product } from '../product/types'
+import { Product } from './interfaces/types'
 import styles from './CartItem.module.scss'
 
 interface Props extends Product {
