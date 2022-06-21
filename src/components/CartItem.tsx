@@ -1,12 +1,20 @@
-import { Cart } from './interfaces/types'
+import { Product } from './interfaces/types'
 import { CartState } from '../context/CartContext'
+import { useState, useEffect } from 'react';
 import styles from './CartItem.module.scss'
 
 interface Props {
-  product: Cart
+  product: Product
 };
 function CartItem({ product }: Props) {
-  const { dispatch } = CartState();
+  const { state: { cart }, dispatch } = CartState();
+  const [totalPerProduct, setTotalPerProduct] = useState(0);
+
+  useEffect(() => {
+    setTotalPerProduct(product.price * product.quantity)
+  }, [cart])
+
+
   return (
     <div className={styles.container}>
       <img src={product.image} alt="product" className={styles.container__image} />
@@ -43,7 +51,7 @@ function CartItem({ product }: Props) {
           </div>
         </div>
       </div>
-      <span className={styles.container__productPrice}>${product.price}</span>
+      <span className={styles.container__productPrice}>${totalPerProduct}</span>
     </div >
   )
 }

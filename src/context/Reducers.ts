@@ -3,7 +3,6 @@ import { Product, Cart } from '../components/interfaces/types'
 
 type ActionType =
   | { type: 'ADD_TO_CART', payload: Product }
-  | { type: 'REMOVE_FROM_CART' }
   | { type: 'ADD_QTY', payload: Cart }
   | { type: 'REMOVE_QTY', payload: Cart }
 
@@ -19,12 +18,6 @@ export const cartReducer = (state: typeof initialState, action: ActionType) => {
           cart: state.cart.filter(item => item.id === action.payload.id ? (item.quantity++) : item.quantity)
         }
       }
-
-    // case "REMOVE_FROM_CART":
-    //   return {
-    //     ...state,
-    //     cart: state.cart.filter((c) => c.id !== action.payload.id),
-    //   };
     case "ADD_QTY":
       return {
         ...state,
