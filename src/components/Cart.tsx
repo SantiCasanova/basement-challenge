@@ -14,7 +14,7 @@ function Cart({ show, closeModal }: Props) {
   const [total, setTotal] = useState(0)
 
   useEffect(() => {
-    setTotal(cart.map(item => item.price * item.quantity).reduce((a: number, b: number) => { return a + b }, 0))
+    setTotal(cart.map((item: Product) => item.price * item.quantity).reduce((a: number, b: number) => { return a + b }, 0))
   }, [cart])
 
 
