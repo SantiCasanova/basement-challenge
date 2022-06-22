@@ -4,11 +4,13 @@
   right: 0px;
   width: 824px;
   height: auto;
+  max-height: 95vh;
   z-index: 3;
   border: 1.5px solid white;
   background-color: black;
   display: flex;
   flex-direction: column;
+  overflow-y: auto;
 
   &__button {
     margin: 20px 25px 20px 0px;

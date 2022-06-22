@@ -18,7 +18,7 @@ export const products: Product[] = [
     quantity: 0
   },
   {
-    price: 7.95,
+    price: 8,
     size: "XL",
     image: "./public/products/shirt.png",
     title: "Black t-shirt",
