@@ -8,19 +8,19 @@
   margin-top: 14px;
 
   &__logo {
-    width: 192px;
+    width: 12em;
     height: 28px;
   }
 
   &__hd4k {
-    width: 248px;
+    width: 15em;
     height: 24px;
   }
 
   &__button {
     background-color: transparent;
     color: white;
-    width: 152px;
+    width: 10em;
     height: 48px;
     border-radius: 56px;
     border: 1.5px solid #FFFFFF;
@@ -37,14 +37,18 @@
 
 @media screen and (max-width: 480px) {
   .nav {
-    background-color: red;
 
     &__logo {
-      width: 100px;
+      width: 6em;
     }
 
     &__hd4k {
-      width: 148px;
+      width: 8em;
+    }
+
+    &__button {
+      width: 6em;
+      font-size: 14px;
     }
   }
 }
