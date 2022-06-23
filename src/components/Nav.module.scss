@@ -34,3 +34,17 @@
     cursor: pointer;
   }
 }
+
+@media screen and (max-width: 480px) {
+  .nav {
+    background-color: red;
+
+    &__logo {
+      width: 100px;
+    }
+
+    &__hd4k {
+      width: 148px;
+    }
+  }
+}

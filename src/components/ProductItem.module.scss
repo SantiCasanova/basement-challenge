@@ -68,3 +68,9 @@
     visibility: visible;
   }
 }
+
+@media screen and (max-width: 480px) {
+  .container {
+    width: calc(340px - 25px);
+  }
+}
