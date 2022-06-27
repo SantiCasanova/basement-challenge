@@ -18,6 +18,8 @@
     text-align: center;
     line-height: 42px;
     letter-spacing: 1px;
+    white-space: nowrap;
+    overflow: hidden;
   }
 
   &__asterisk {
@@ -41,8 +43,20 @@
 
 @media screen and (max-width: 480px) {
   .container {
+    height: 52px;
+
     &__text {
       font-size: 18px;
+    }
+
+    &__asterisk {
+      width: 100px;
+      left: 30px;
+    }
+
+    &__asterisk2 {
+      width: 100px;
+      right: 30px;
     }
   }
 }
