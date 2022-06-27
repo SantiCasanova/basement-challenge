@@ -7,7 +7,11 @@
   justify-content: space-between;
   margin-top: 14px;
 
-  &__logo {
+  &__mobileLogo {
+    display: none;
+  }
+
+  &__desktopLogo {
     width: 12em;
     height: 28px;
   }
@@ -37,9 +41,13 @@
 
 @media screen and (max-width: 480px) {
   .nav {
+    &__mobileLogo {
+      margin-left: 15px;
+      display: block;
+    }
 
-    &__logo {
-      width: 6em;
+    &__desktopLogo {
+      display: none;
     }
 
     &__hd4k {
@@ -49,6 +57,7 @@
     &__button {
       width: 6em;
       font-size: 14px;
+      margin-right: 15px;
     }
   }
 }

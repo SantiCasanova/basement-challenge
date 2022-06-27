@@ -8,11 +8,9 @@ function Nav() {
   const { state: { cart } } = CartState();
   return (
     <div className={styles.nav}>
-      <picture>
-        <source media="(max-width:480px)" srcSet="./public/mobile-logo.svg" className={styles.nav__mobileLogo} />
-        <source media="(min-width:480px)" srcSet="./public/hd-4k.svg" className={styles.nav__hd4k} />
-        <img src="./public/logo.svg" className={styles.nav__logo} />
-      </picture>
+      <img src="./public/mobile-logo.svg" className={styles.nav__mobileLogo} />
+      <img src="./public/logo.svg" className={styles.nav__desktopLogo} />
+      <img src="./public/hd-4k.svg" className={styles.nav__hd4k} />
       <button className={styles.nav__button} onClick={() => { setShow(true) }}>
         <span>CART</span>
         <span className={styles.button__item}>({cart.length})</span>
