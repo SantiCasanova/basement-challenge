@@ -73,4 +73,12 @@
   .container {
     width: calc(340px - 25px);
   }
+
+  .hover {
+    left: 60px;
+
+    &__text {
+      font-size: 45px;
+    }
+  }
 }
